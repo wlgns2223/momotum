@@ -1,0 +1,96 @@
+
+
+body {
+    background: #2c3e50;
+    font-family: 'Roboto',sans-serif;
+    font-weight: normal;
+    color: #ecf0f1;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadeIn{
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.container{
+    animation: fadeIn 0.9s linear;
+}
+
+.main-info li {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: left;
+}
+
+.input-basic{
+    background: none;
+    border: none;
+    appearance: none;
+    border-bottom: 5px solid #ecf0f1;
+    font-size: 36px;
+    color: #ecf0f1;
+}
+
+input:focus {
+    outline: none;
+}
+
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.container .main-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 120px;
+}
+
+.main-info .js-clock{
+    font-size: 10em;
+    margin-bottom: 100px;
+}
+
+.main-info .js-weather {
+    display: block;
+    margin-bottom: 50px;
+    font-size: 36px;
+    font-family: 'Indie Flower',sans-serif;
+}
+
+.main-info .input-form,
+.main-info .js-toDoForm{
+    margin-bottom: 50px;
+}
+
+.input-form,
+.greeting {
+    display: none;
+}
+
+.main-info .greeting {
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+
+.showing{
+    display: block;
+}
+
+.bgImage{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    
+}
