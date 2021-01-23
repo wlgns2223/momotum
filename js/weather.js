@@ -18,6 +18,10 @@ const askForCoords = () => {
     navigator.geolocation.getCurrentPosition(handleGeoSuccess,handleGeoError);
 }
 
+const handleGeoError = (position) => {
+    console.log(position);
+}
+
 const handleGeoSuccess = (position) => {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
@@ -46,14 +50,8 @@ const getWeather = (lat,lon) => {
     })
 }
 
-const handleGeoError = (position) => {
-    console.log(position);
-}
-
-
 function init(){
     loadGeo();
-
 }
 
 init();

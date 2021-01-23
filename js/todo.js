@@ -7,6 +7,7 @@ let todos = [];
 
 const loadToDo = () =>{
     const loadedTodo = localStorage.getItem(TODOS_LS);
+    toDoForm.addEventListener('submit',toDohandleSubmit);
     if(loadedTodo !== null){
         const parsedToDos = JSON.parse(loadedTodo);
         parsedToDos.forEach((todos) => {
@@ -68,7 +69,6 @@ const toDohandleSubmit = (event) =>{
 
 function init() {
     loadToDo();
-    toDoForm.addEventListener('submit',toDohandleSubmit);
 }
 
 init();
