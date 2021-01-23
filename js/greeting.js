@@ -4,19 +4,30 @@ const greeting = document.querySelector('.js-greeting');
 const CURRENT_USER_IN_LS = "currentUser";
 const SHOWING_ON = "showing";
 
+
+const loadName = () => {
+    const currentUser = localStorage.getItem(CURRENT_USER_IN_LS);
+    if(currentUser === null ){
+        askForName();
+
+    } else {
+        paintGreeting(currentUser);
+
+    }
+}
+
 const askForName = () => {
 
     form.classList.add(SHOWING_ON);
     form.addEventListener('submit',handleSubmit);
-
 }
 
 const handleSubmit = (event) => {
+    
     event.preventDefault();
     const currentValue = input.value;
     paintGreeting(currentValue);
     saveName(currentValue);
-
 }
 
 const paintGreeting = (text) => {
@@ -29,16 +40,6 @@ const saveName = (item) =>{
     localStorage.setItem(CURRENT_USER_IN_LS,item);
 }
 
-const loadName = () => {
-    const currentUser = localStorage.getItem(CURRENT_USER_IN_LS);
-    if(currentUser === null ){
-        askForName();
-
-    } else {
-        paintGreeting(currentUser);
-
-    }
-}
 
 
 function init(){
