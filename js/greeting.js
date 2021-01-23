@@ -1,6 +1,4 @@
 const form =document.querySelector('.js-form');
-const input = form.querySelector('input');
-const greeting = document.querySelector('.js-greeting');
 const CURRENT_USER_IN_LS = "currentUser";
 const SHOWING_ON = "showing";
 
@@ -24,6 +22,7 @@ const askForName = () => {
 
 const handleSubmit = (event) => {
     
+    const input = form.querySelector('input');
     event.preventDefault();
     const currentValue = input.value;
     paintGreeting(currentValue);
@@ -31,6 +30,8 @@ const handleSubmit = (event) => {
 }
 
 const paintGreeting = (text) => {
+
+    const greeting = document.querySelector('.js-greeting');
     form.classList.remove(SHOWING_ON);
     greeting.classList.add(SHOWING_ON);
     greeting.textContent = `Hello ${text}`;
