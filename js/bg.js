@@ -1,8 +1,6 @@
-const body = document.querySelector('body');
-
-const IMG_NUM = 5;
 
 const paintImg = (imgNum) => {
+    const body = document.querySelector('body');
     const img = new Image();
     img.src = `./images/${imgNum}.jpg`;
 
@@ -14,6 +12,7 @@ const paintImg = (imgNum) => {
 
 const getrandom = () => {
     
+    const IMG_NUM = 5;
     return Math.floor(Math.random() * IMG_NUM) + 1;
 }
 
