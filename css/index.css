@@ -32,9 +32,20 @@ body {
     background: none;
     border: none;
     appearance: none;
-    border-bottom: 5px solid #ecf0f1;
-    font-size: 36px;
-    color: #ecf0f1;
+    border-bottom: 1px solid #ecf0f1;
+    font-size: 1.5rem;
+    color: #000
+}
+
+.add-button {
+	width: 24px;
+	height: 24px;
+	border-radius: 24px;
+	color: white;
+	font-size: 16px;
+	line-height: 17px;
+	border: 1px solid dimgray;
+	background-color: darkblue;
 }
 
 input:focus {
@@ -55,9 +66,14 @@ input:focus {
     padding-top: 120px;
 }
 
+.main-info .todo {
+    width: 480px;
+    background-color: #fff;
+}
+
 .main-info .js-clock{
     font-size: 10em;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .main-info .js-weather {
@@ -67,24 +83,20 @@ input:focus {
     font-family: 'Indie Flower',sans-serif;
 }
 
-.main-info .input-form,
-.main-info .js-toDoForm{
-    margin-bottom: 50px;
+.main-info .todo-greeting {
+    background-color: blueviolet;
+    padding: 10px 20px;
+    font-size: 2rem;
 }
 
-.input-form,
-.greeting {
+.main-info .todo-form{
+    padding: 10px 20px;
+}
+
+.todo-form__invisible {
     display: none;
 }
 
-.main-info .greeting {
-    font-size: 36px;
-    margin-bottom: 50px;
-}
-
-.showing{
-    display: block;
-}
 
 .bgImage{
     position: absolute;

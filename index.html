@@ -21,15 +21,22 @@
             </div>
             <span class="js-weather"></span>
 
-            <form action="" class="js-form input-form">
-                <input type="text" placeholder="What Is Your Name?" class="input-basic">
-            </form>
-            <p class="js-greeting greeting"></p>
-            <form action="" class="js-toDoForm">
-                <input type="text" placeholder="Write a To Do List"
-                class="input-basic">
-            </form>
-            <ul class="js-toDoList"></ul>
+            <article class="todo">
+                <div class="todo-greeting">
+                    <h2 class="todo-name">안녕하세요</h2>
+                </div>
+                <form action="" class="todo-form todo-form__invisible">
+                    <button class="add-button">+</button>
+                    <input type="text" placeholder="이름이 뭐에요?" class="input-basic">
+                </form>
+
+                <form action="" class="todo-form">
+                    <button class="add-button">+</button>
+                    <input type="text" placeholder="할 일 추가"
+                    class="input-basic">
+                </form>
+                <ul class="js-toDoList"></ul>
+            </article>
         </section>
     </div>
 
@@ -38,6 +45,9 @@
     <script src="js/todo.js"></script>
     <script src="js/bg.js"></script>
     <script src="js/weather.js"></script>
+    <script>
+        const nameApp = new NameManager();
+    </script>
     
 </body>
 </html>
