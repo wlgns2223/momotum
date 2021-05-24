@@ -1,24 +1,29 @@
+class BackgroundManager {
 
-const paintImg = (imgNum) => {
-    const body = document.querySelector('body');
-    const img = new Image();
-    img.src = `./images/${imgNum}.jpg`;
+    static get IMG_NUM() {
+        return 5;
+    }
 
-    img.classList.add('bgImage');
-
-    body.appendChild(img);
-}
-
-
-const getrandom = () => {
+    constructor() {
+        
+        this.init();
+    }
     
-    const IMG_NUM = 5;
-    return Math.floor(Math.random() * IMG_NUM) + 1;
-}
+    init() {
+        const numberOfImages = this.getRandomNumber();
+        this.renderBackground(numberOfImages);
+    }
 
-function init() {
-    const num = getrandom();
-    paintImg(num);
-}
+    renderBackground(imgNum) {
+        const body = document.querySelector('body');
+        const img = new Image();
+        img.src = `/images/${imgNum}.jpg`;
+        console.log(img);
+        img.classList.add('bgImage');
+        body.appendChild(img);
+    }
 
-init();
+    getRandomNumber() {
+        return Math.floor(Math.random() * BackgroundManager.IMG_NUM) + 1;
+    }
+}
