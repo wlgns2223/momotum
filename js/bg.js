@@ -17,7 +17,7 @@ class BackgroundManager {
     renderBackground(imgNum) {
         const body = document.querySelector('body');
         const img = new Image();
-        img.src = `/images/${imgNum}.jpg`;
+        img.src = `./images/${imgNum}.jpg`;
         console.log(img);
         img.classList.add('bgImage');
         body.appendChild(img);
