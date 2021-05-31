@@ -1,7 +1,7 @@
 class WeatherManager {
     constructor() {
         this.COORDS = 'coords';
-        this.API_KEY = "4f116f50e74b7724e204160b69ce34f4";
+        this.API_KEY = ""
         this.weatherSpace = document.querySelector('.todo .todo-weather');
 
         this.init();
