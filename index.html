@@ -25,7 +25,7 @@
                     <span class="todo-weather"></span>
                     <h2 class="todo-name">안녕하세요</h2>
                 </div>
-                <form action="" class="todo-form todo-name todo-form__invisible">
+                <form action="" class="todo-form todo-name-form">
                     <button class="add-button">+</button>
                     <input type="text" placeholder="이름이 뭐에요?" class="input-basic">
                 </form>
@@ -46,7 +46,7 @@
     <script src="js/bg.js"></script>
     <script src="js/weather.js"></script>
     <script>
-        const nameApp = new NameManager();
+        const nameApp = new NameApp();
         const weatherApp = new WeatherManager();
         const backgroundApp = new BackgroundApp();
         const clockApp = new ClockManager();
