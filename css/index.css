@@ -76,10 +76,10 @@ input:focus {
     margin-bottom: 50px;
 }
 
-.main-info .js-weather {
+.main-info .todo-weather {
     display: block;
-    margin-bottom: 50px;
-    font-size: 36px;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
     font-family: 'Indie Flower',sans-serif;
 }
 
@@ -97,7 +97,6 @@ input:focus {
     display: none;
 }
 
-
 .bgImage{
     position: absolute;
     top: 0;
@@ -106,3 +105,48 @@ input:focus {
     z-index: -1;
     
 }
+
+.todo-list {
+    padding: 10px 20px;
+    font-size: 2rem;
+}
+
+.todoItem {
+    color: black;
+    
+}
+
+.todoItem input {
+    position: relative;
+}
+
+.todoItem input:before {
+	content: "";
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-color: white;
+	border-radius: 20px;
+	position: absolute;
+	top: -6px;
+	left: -4px;
+	border: 1px solid dimgray;
+  }
+  .todoItem input:checked:after {
+	content: '\2713';
+	display: inline-block;
+	font-size: 18px;
+	width: 20px;
+	height: 20px;
+	border-radius: 20px;
+	position: absolute;
+	top: -6px;
+	left: -4px;
+	border: 1px solid dimgray;
+	background-color: dimgray;
+	text-align: center;
+	color: white;
+  }
+  .todoItem input:checked + label {
+	text-decoration: line-through;
+  }

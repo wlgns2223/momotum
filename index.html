@@ -25,17 +25,17 @@
                     <span class="todo-weather"></span>
                     <h2 class="todo-name">안녕하세요</h2>
                 </div>
-                <form action="" class="todo-form todo-form__invisible">
+                <form action="" class="todo-form todo-name todo-form__invisible">
                     <button class="add-button">+</button>
                     <input type="text" placeholder="이름이 뭐에요?" class="input-basic">
                 </form>
 
-                <form action="" class="todo-form">
+                <form action="" class="todo-form todo-add">
                     <button class="add-button">+</button>
                     <input type="text" placeholder="할 일 추가"
                     class="input-basic">
                 </form>
-                <ul class="js-toDoList"></ul>
+                <ul class="todo-list"></ul>
             </article>
         </section>
     </div>
@@ -49,7 +49,8 @@
         const nameApp = new NameManager();
         const weatherApp = new WeatherManager();
         const backgroundApp = new BackgroundManager();
-        const clockManager = new ClockManager();
+        const clockApp = new ClockManager();
+        const todoApp = new TodoApp();
     </script>
     
 </body>
