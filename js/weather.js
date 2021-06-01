@@ -1,29 +1,56 @@
 class WeatherManager {
+
+    static get COORDS() {
+        return "coords";
+    }
+
+    static get API_KEY() {
+        return "4f116f50e74b7724e204160b69ce34f4";
+    }
+
+
     constructor() {
-        this.COORDS = 'coords';
-        this.API_KEY = ""
-        this.weatherSpace = document.querySelector('.todo .todo-weather');
-
-        this.init();
-    }
-
-    init() {
-        this.loadGeo();
-    }
-
-    loadGeo() {
-        const loadedCoords = localStorage.getItem(this.COORDS);
+        this.weather = {};
+        this.coords = {};
+        this.initApp();
         
-        if(loadedCoords === null ){
-            this.askForCoords();
-        } else {
-            const parsedCoord = JSON.parse(loadedCoords);
-            this.renderWeather(parsedCoord);
-        }
+        
     }
 
-    askForCoords() {
+    initApp(){
+        const coordsTemp = localStorage.getItem(WeatherManager.COORDS);
+        if(coordsTemp === null){
+            this.setCoords();
+        }
+        this.coords = JSON.parse(coordsTemp);
+
+
+    }
+
+    fetchWeather(){
+
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${this.coords.latitude}&lon=${this.coords.longitude}&appid=${WeatherManager.API_KEY}&units=metric`;
+
+        return fetch(url).then(res => res.json());
+                
+    }
+
+    async getWeather(){
+
+        if(this.weather.constructor === Object && Object.keys(this.weather).length === 0){
+            const val = await this.fetchWeather();
+            this.weather = {
+                city: val.name,
+                temp: val.main.temp,
+            };
+        }
+
+        return this.weather
+    }
+
+    setCoords(){
         navigator.geolocation.getCurrentPosition(this.handleGeoSuccess, this.handleGeoError)
+
     }
 
     handleGeoError(err) {
@@ -31,28 +58,25 @@ class WeatherManager {
     }
 
     handleGeoSuccess(position) {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-        const coordsObj = {
-            latitude,
-            longitude,
+        this.coords = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
         };
+        localStorage.setItem(WeatherManager.COORDS, JSON.stringify(this.coords));
+    }
+}
 
-        this.saveCoords(coordsObj);
-        this.renderWeather(coordsObj);
+class WeatherApp {
+
+    constructor() {
+        this.weatherManager = new WeatherManager();
+        this.renderWeather();
     }
 
-    saveCoords(coordsObj) {
-        localStorage.setItem(this.COORDS, JSON.stringify(coordsObj));
-    }
-
-    renderWeather(coordsObj) {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coordsObj.latitude}&lon=${coordsObj.longitude}&appid=${this.API_KEY}&units=metric`)
-            .then(res => res.json())
-            .then(res => {
-                const city  = res.name;
-                const temperature = res.main.temp;
-                this.weatherSpace.textContent = `${temperature} C @ ${city}`;
-            });
+    async renderWeather(){
+        const weatherSpan = document.querySelector('.todo .todo-weather');
+        const weather = await this.weatherManager.getWeather();
+        console.log(weather);
+        weatherSpan.textContent = `${weather.temp} @ ${weather.city}`;
     }
 }
